@@ -135,6 +135,34 @@ export const addMemberToTrip = async (req, res, next) => {
   }
 };
 
+
+export const deleteTrip = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const trip = await Trip.findById(id);
+    if (!trip) {
+      return res.status(404).json({
+        success: false,
+        message: "Trip not found",
+      });
+    }
+
+    // ลบ expense ทั้งหมดของ trip นี้ (important)
+    await Expense.deleteMany({ tripId: id });
+
+    // ลบ trip
+    await Trip.findByIdAndDelete(id);
+
+    return res.status(200).json({
+      success: true,
+      message: "Trip deleted successfully",
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 export const deleteMemberFromTrip = async (req, res, next) => {
   try {
     const { id, memberId } = req.params;
