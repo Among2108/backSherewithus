@@ -26,7 +26,7 @@ Content-Type: application/json
 
 ### Delete member form trip
 
-DELETE http://localhost:5000/api/trips/PUT_TRIP_ID_HERE/members/PUT_MEMBER_ID_HERE
+DELETE http://localhost:5000/api/trips/69798eb5ae21c5281bdca441/members/69799790440225d9b168b29e
 
 
 
@@ -61,3 +61,6 @@ DELETE http://localhost:5000/api/trips/TRIP_ID/expenses/EXPENSE_ID
 
 ### Get Trip Summary
 GET http://localhost:5000/api/trips/69798eb5ae21c5281bdca441/summary
+
+###
+DELETE http://localhost:5000/api/trips/69798eb5ae21c5281bdca441

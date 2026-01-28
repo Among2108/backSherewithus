@@ -5,6 +5,7 @@ import {
   addMemberToTrip,
   deleteMemberFromTrip,
   getAllTrips,
+  deleteTrip
 } from "../controllers/trip.controller.js";
 import { getTripSummary } from "../controllers/summary.controller.js";
 
@@ -16,5 +17,6 @@ router.get("/:id", getTripById); // GET /api/trips/:id
 router.get("/:id/summary", getTripSummary);
 router.post("/:id/members", addMemberToTrip); // POST /api/trips/:id/members
 router.delete("/:id/members/:memberId", deleteMemberFromTrip);
+router.delete("/:id", deleteTrip);
 
 export default router;
