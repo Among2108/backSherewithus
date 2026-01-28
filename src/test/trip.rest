@@ -1,0 +1,63 @@
+### Base URL
+@baseUrl = http://localhost:5000
+
+### Create Trip
+POST {{baseUrl}}/api/trips
+Content-Type: application/json
+
+{
+  "title": "Japan Trip",
+  "coverImage": ""
+}
+
+### Get all trips
+GET http://localhost:5000/api/trips
+
+###
+## Add member on trip
+
+POST {{baseUrl}}/api/trips/69798eb5ae21c5281bdca441/members
+Content-Type: application/json
+
+{
+  "name": "Now"
+}
+
+
+### Delete member form trip
+
+DELETE http://localhost:5000/api/trips/PUT_TRIP_ID_HERE/members/PUT_MEMBER_ID_HERE
+
+
+
+
+### Add Expense
+POST http://localhost:5000/api/trips/69798eb5ae21c5281bdca441/expenses
+Content-Type: application/json
+
+{
+  "title": "Dinner",
+  "amount": 120,
+  "category": "Food",
+  "paidByMemberId": "697996dd440225d9b168b290",
+  "splitAmongIds": ["697996dd440225d9b168b290","69799790440225d9b168b29e"],
+  "date": "2026-01-28"
+}
+
+### Get Expenses
+GET http://localhost:5000/api/trips/69798eb5ae21c5281bdca441/expenses
+
+### Update Expense
+PATCH http://localhost:5000/api/trips/TRIP_ID/expenses/EXPENSE_ID
+Content-Type: application/json
+
+{
+  "amount": 150
+}
+
+### Delete Expense
+DELETE http://localhost:5000/api/trips/TRIP_ID/expenses/EXPENSE_ID
+
+
+### Get Trip Summary
+GET http://localhost:5000/api/trips/69798eb5ae21c5281bdca441/summary
